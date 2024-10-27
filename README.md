@@ -1,4 +1,4 @@
-# Documentación del Sistema
+# Documentación para el backend
 
 ## Página de Login
 La página de login envía los siguientes datos: usuario y contraseña. Estos datos se envían a un servlet llamado `auth`. Si los datos son correctos, se redirige a `JSP/inicio.jsp`; de lo contrario, se redirige a la página de login enviando un parámetro llamado `loginError`, cuyo valor será `"error"`.
