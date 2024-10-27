@@ -81,5 +81,5 @@ Para todo será necesario usar **procesos almacenados**.
 
 ## Anexos
 Esto es para cuando se vayan a enviar los datos al panel de control
-![Imagen de referencia](image-ref.png)
+![Imagen de referencia](Captura de pantalla 2024-10-27 012650.png)
 
