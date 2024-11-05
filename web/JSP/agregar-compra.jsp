@@ -18,8 +18,8 @@
         </jsp:include>
 
         <main class="main-content">
-            <div class="form-container">
-                <form action="compras" method="POST">
+            <div class="form-container" style="max-width:1000px;">
+                <form action="../ComprasServlet" method="POST">
                     <h1 style="color:#3d4f48; margin-bottom: 1rem; margin-top: 0.5rem; text-align: center">
                         Registro de compras
                     </h1>
@@ -36,6 +36,10 @@
                             <div class="input-group">
                                 <label for="quantity_1">Cantidad</label>
                                 <input type="number" id="quantity_1" name="quantity[]" min="1" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="unit_price_1">Precio Unitario</label>
+                                <input type="number" id="unit_price_1" name="unit_price[]" min="1" required>
                             </div>
                             <button type="button" class="add-btn" onclick="addProductRow()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button>
                         </div>
@@ -62,6 +66,10 @@
                 <div class="input-group">
                     <label for="quantity_${rowCount}">Cantidad</label>
                     <input type="number" id="quantity_${rowCount}" name="quantity[]" min="1" required>
+                </div>
+                <div class="input-group">
+                    <label for="unit_price_${rowCount}">Precio Unitario</label>
+                    <input type="number" id="unit_price_${rowCount}" name="unit_price[]" min="1" required>
                 </div>
                 <button type="button" class="remove-btn" onclick="removeProductRow(this)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus"><path d="M5 12h14"/></svg></button>
             `;

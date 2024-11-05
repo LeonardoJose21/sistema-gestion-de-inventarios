@@ -4,13 +4,18 @@
     Author     : leopa
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="Operaciones.ListarProductos"%>
+<%@ page import="java.util.Vector" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    Vector<ListarProductos> productos = (Vector<ListarProductos>) request.getAttribute("productos");
+%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Productos</title>
-        <link href="../CSS/estilos.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/CSS/estilos.css" rel="stylesheet" type="text/css">
     </head>
     <body>
 
@@ -57,17 +62,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Here you would use a JSP forEach to iterate through your sales data -->
-                <c:forEach items="${productos}" var="venta">
+                    <%
+                        // Iterar sobre el vector de clientes
+                        for (ListarProductos producto : productos) {
+                    %>
                     <tr>
-                        <td>${productos.id_producto}</td>
-                        <td>${productos.nombre}</td>
-                        <td>${productos.marca}</td>
-                        <td>${productos.categoria}</td>
-                        <td>${productos.unidades}</td>
-                        <td>${productos.precio_unitario}</td>
+                        <td><%= producto.getIdProducto()%></td>
+                        <td><%= producto.getNombre()%></td>
+                        <td><%= producto.getMarca()%></td>
+                        <td><%= producto.getCategoria()%></td>
+                        <td><%= producto.getUnidades()%></td>
+                        <td><%= producto.getPrecioUnitario()%></td>
                     </tr>
-                </c:forEach>
+                    <%
+                        }
+                    %>
                 </tbody>
             </table>
         </main>

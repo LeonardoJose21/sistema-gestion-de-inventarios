@@ -3,14 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/leopa/OneDrive/Desktop/sistema-gestion-inventarios-los-pelaos/web/index.html</file>
-            <file>file:/C:/Users/leopa/OneDrive/Desktop/sistema-gestion-inventarios-los-pelaos/web/JSP/agregar-compra.jsp</file>
-            <file>file:/C:/Users/leopa/OneDrive/Desktop/sistema-gestion-inventarios-los-pelaos/web/JSP/panel-control.jsp</file>
-            <file>file:/C:/Users/leopa/OneDrive/Desktop/sistema-gestion-inventarios-los-pelaos/web/CSS/estilos.css</file>
-            <file>file:/C:/Users/leopa/OneDrive/Desktop/sistema-gestion-inventarios-los-pelaos/web/JSP/agregar-venta.jsp</file>
-            <file>file:/C:/Users/leopa/OneDrive/Desktop/sistema-gestion-inventarios-los-pelaos/web/JSP/productos.jsp</file>
-            <file>file:/C:/Users/leopa/OneDrive/Desktop/sistema-gestion-inventarios-los-pelaos/web/JSP/inicio.jsp</file>
-            <file>file:/C:/Users/leopa/OneDrive/Desktop/sistema-gestion-inventarios-los-pelaos/web/JSP/historial-ventas-compras.jsp</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/src/java/Servlet/VentasServlet.java</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/src/java/Operaciones/AgregarVenta.java</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/web/META-INF/context.xml</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/web/JSP/agregar-compra.jsp</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/src/java/Operaciones/DBManager.java</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/src/java/Operaciones/ListarVentas.java</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/web/JSP/header.jsp</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/src/java/Servlet/HistorialVentasComprasServlet.java</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/src/java/Servlet/ComprasServlet.java</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/web/JSP/panel-control.jsp</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/web/JSP/historial-ventas-compras.jsp</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/web/JSP/agregar-venta.jsp</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/src/java/Operaciones/AgregarCompra.java</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/src/java/Servlet/ProductosServlet.java</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/web/CSS/estilos.css</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/src/java/Operaciones/ListarCompras.java</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/web/JSP/productos.jsp</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/src/conf/MANIFEST.MF</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/web/index.jsp</file>
+            <file>file:/C:/Users/andresospina/Proyectos/sistema-gestion-de-inventarios/src/java/Operaciones/ListarProductos.java</file>
         </group>
     </open-files>
 </project-private>

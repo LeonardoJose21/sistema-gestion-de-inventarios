@@ -65,6 +65,10 @@ body {
     margin-bottom: 1rem;
 }
 
+.input-group-compra {
+    margin-bottom: 2rem;
+}
+
 .input-group label {
     display: block;
     margin-bottom: 0.5rem;

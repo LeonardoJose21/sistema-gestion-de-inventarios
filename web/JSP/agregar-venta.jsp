@@ -19,10 +19,11 @@
         </jsp:include>
         <main class="main-content">
             <div class="form-container">
-                <form action="ventas" method="POST">
+                <form action="../VentasServlet" method="POST">
                     <h1 style="color:#3d4f48; margin-bottom: 1rem; margin-top: 0.5rem; text-align: center">
                         Registro de ventas
                     </h1>
+
                     <div id="productsContainer" class="products-container">
                         <div class="product-row">
                             <div class="input-group">
