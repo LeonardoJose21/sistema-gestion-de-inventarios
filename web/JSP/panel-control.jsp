@@ -4,13 +4,42 @@
     Author     : leopa
 --%>
 
+<%@page import="com.google.gson.Gson"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% 
+    Gson parser = new Gson();
+    
+    // Obtener el ArrayList del request      
+    ArrayList<String> comprasVentasMeses = (ArrayList<String>) request.getAttribute("comprasVentasMeses");
+    ArrayList<Double> comprasVentasTotalVentas = (ArrayList<Double>) request.getAttribute("comprasVentasTotalVentas");
+    ArrayList<Double> comprasVentasTotalCompras = (ArrayList<Double>) request.getAttribute("comprasVentasTotalCompras");
+    String jsonComprasVentasMeses = parser.toJson(comprasVentasMeses);
+    String jsonComprasVentasTotalVentas = parser.toJson(comprasVentasTotalVentas);
+    String jsonComprasVentasTotalCompras = parser.toJson(comprasVentasTotalCompras);
+    
+    ArrayList<String> categoryLabels = (ArrayList<String>) request.getAttribute("categoryLabels");
+    ArrayList<Double> categoryData = (ArrayList<Double>) request.getAttribute("categoryData");
+    String jsonCategoryLabels = parser.toJson(categoryLabels);
+    String jsonCategoryData = parser.toJson(categoryData);
+    
+    ArrayList<String> brandLabels = (ArrayList<String>) request.getAttribute("brandLabels");
+    ArrayList<Double> brandData = (ArrayList<Double>) request.getAttribute("brandData");
+    String jsonBrandLabels = parser.toJson(brandLabels);
+    String jsonBrandData = parser.toJson(brandData);
+    
+    ArrayList<String> productLabels = (ArrayList<String>) request.getAttribute("productLabels");
+    ArrayList<Double> productData = (ArrayList<Double>) request.getAttribute("productData");
+    String jsonProductLabels = parser.toJson(productLabels);
+    String jsonProductData = parser.toJson(productData);
+%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Panel</title>
-        <link href="../CSS/estilos.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/CSS/estilos.css" rel="stylesheet" type="text/css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     </head>
     <body>
@@ -27,7 +56,7 @@
                         <span style="margin-right: 2px ">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#27ce78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
                         </span>
-                        $${totalVentas}
+                        $<%= request.getAttribute("totalVentas") %>
                     </div>
                 </div>
                 <div class="kpi-card">
@@ -36,23 +65,26 @@
                         <span style="margin-right: 2px ">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ce2748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-down"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg>
                         </span>
-                        $${totalCompras}</div>
+                        $<%= request.getAttribute("totalCompras") %>
+                    </div>
                 </div>
                 <div class="kpi-card">
-                    <div class="kpi-title">Ventas Último Mes</div>
-                    <div class="kpi-value"><span style="margin-right: 0 ">
+                    <div class="kpi-title">Ventas Mes Actual</div>
+                    <div class="kpi-value">
+                        <span style="margin-right: 2px ">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#27ce78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
                         </span>
-                        $${ventasUltimoMes}</div>
-
+                        $<%= request.getAttribute("ventasMesActual") %>
+                    </div>
                 </div>
                 <div class="kpi-card">
-                    <div class="kpi-title">Compras Último Mes</div>
+                    <div class="kpi-title">Compras Mes Actual</div>
                     <div class="kpi-value">
                         <span style="margin-right: 2px ">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ce2748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-down"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg>
                         </span>
-                        $${comprasUltimoMes}</div>
+                        $<%= request.getAttribute("comprasMesActual") %>
+                    </div>
                 </div>
             </div>
 
@@ -90,21 +122,21 @@
             new Chart(monthlyCtx, {
                 type: 'line',
                 data: {
-                    labels: ${monthLabels}, // From server: ["Ene", "Feb", "Mar", ...]
+                    labels: <%= jsonComprasVentasMeses %>, // From server: ["Ene", "Feb", "Mar", ...]
                     datasets: [{
                             label: 'Ventas',
-                            data: ${monthlyVentas}, // From server: [1000, 2000, 1500, ...]
+                            data: <%= jsonComprasVentasTotalVentas %>, // From server: [1000, 2000, 1500, ...]
                             borderColor: '#2ecc71',
                             tension: 0.1
                         }, {
                             label: 'Compras',
-                            data: ${monthlyCompras}, // From server: [800, 1800, 1300, ...]
+                            data: <%= jsonComprasVentasTotalCompras %>, // From server: [800, 1800, 1300, ...]
                             borderColor: '#3498db',
                             tension: 0.1
                         }]
                 },
                 options: {
-                    responsive: true,
+                    responsive: false,
                     maintainAspectRatio: false
                 }
             });
@@ -114,15 +146,15 @@
             new Chart(categoriesCtx, {
                 type: 'bar',
                 data: {
-                    labels: ${categoryLabels}, // From server: ["Cat1", "Cat2", ...]
+                    labels: <%= jsonCategoryLabels %>, // From server: ["Cat1", "Cat2", ...]
                     datasets: [{
                             label: 'Ventas por Categoría',
-                            data: ${categoryData}, // From server: [500, 400, 300, ...]
+                            data: <%= jsonCategoryData %>, // From server: [500, 400, 300, ...]
                             backgroundColor: '#e74c3c'
                         }]
                 },
                 options: {
-                    responsive: true,
+                    responsive: false,
                     maintainAspectRatio: false
                 }
             });
@@ -132,15 +164,15 @@
             new Chart(brandsCtx, {
                 type: 'bar',
                 data: {
-                    labels: ${brandLabels}, // From server: ["Brand1", "Brand2", ...]
+                    labels: <%= jsonBrandLabels %>, // From server: ["Brand1", "Brand2", ...]
                     datasets: [{
                             label: 'Ventas por Marca',
-                            data: ${brandData}, // From server: [600, 550, 500, ...]
+                            data: <%= jsonBrandData %>, // From server: [600, 550, 500, ...]
                             backgroundColor: '#9b59b6'
                         }]
                 },
                 options: {
-                    responsive: true,
+                    responsive: false,
                     maintainAspectRatio: false
                 }
             });
@@ -150,15 +182,15 @@
             new Chart(productsCtx, {
                 type: 'bar',
                 data: {
-                    labels: ${productLabels}, // From server: ["Prod1", "Prod2", ...]
+                    labels: <%= jsonProductLabels %>, // From server: ["Prod1", "Prod2", ...]
                     datasets: [{
                             label: 'Productos más Vendidos',
-                            data: ${productData}, // From server: [800, 700, 600, ...]
+                            data: <%= jsonProductData %>, // From server: [800, 700, 600, ...]
                             backgroundColor: '#f1c40f'
                         }]
                 },
                 options: {
-                    responsive: true,
+                    responsive: false,
                     maintainAspectRatio: false
                 }
             });

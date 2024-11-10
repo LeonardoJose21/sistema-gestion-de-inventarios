@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Agregar compra</title>
-        <link href="../CSS/estilos.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/CSS/estilos.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <jsp:include page="header.jsp">
@@ -19,7 +19,7 @@
 
         <main class="main-content">
             <div class="form-container" style="max-width:1000px;">
-                <form action="../ComprasServlet" method="POST">
+                <form action="${pageContext.request.contextPath}/ComprasServlet" method="POST">
                     <h1 style="color:#3d4f48; margin-bottom: 1rem; margin-top: 0.5rem; text-align: center">
                         Registro de compras
                     </h1>

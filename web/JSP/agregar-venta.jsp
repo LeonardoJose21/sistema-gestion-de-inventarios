@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Agregar venta</title>
-        <link href="../CSS/estilos.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/CSS/estilos.css" rel="stylesheet" type="text/css">
     </head>
     <body>
 
@@ -19,7 +19,7 @@
         </jsp:include>
         <main class="main-content">
             <div class="form-container">
-                <form action="../VentasServlet" method="POST">
+                <form action="${pageContext.request.contextPath}/VentasServlet" method="POST">
                     <h1 style="color:#3d4f48; margin-bottom: 1rem; margin-top: 0.5rem; text-align: center">
                         Registro de ventas
                     </h1>

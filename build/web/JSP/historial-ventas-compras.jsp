@@ -1,16 +1,17 @@
-<%-- 
-    Document   : historial-ventas-compras
-    Created on : Oct 25, 2024, 7:11:37 PM
-    Author     : leopa
---%>
-
+<%@page import="Operaciones.ListarCompras"%>
+<%@page import="Operaciones.ListarVentas"%>
+<%@page import="java.util.Vector"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    Vector<ListarCompras> compras = (Vector<ListarCompras>) request.getAttribute("compras");
+    Vector<ListarVentas> ventas = (Vector<ListarVentas>) request.getAttribute("ventas");
+%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Historia ventas y compras</title>
-        <link href="../CSS/estilos.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/CSS/estilos.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <jsp:include page="header.jsp">
@@ -34,16 +35,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Here you would use a JSP forEach to iterate through your sales data -->
-                    <c:forEach items="${ventasList}" var="venta">
+                        <%
+                            for (ListarVentas venta : ventas) {
+                        %>
                         <tr>
-                            <td>${venta.id_venta}</td>
-                            <td>${venta.nombre_producto}</td>
-                            <td>${venta.cantidad}</td>
-                            <td>${venta.total}</td>
-                            <td>${venta.fecha_hora}</td>
+                            <td><%= venta.getIdVenta() %></td>
+                            <td><%= venta.getNombreProducto() %></td>
+                            <td><%= venta.getCantidad() %></td>
+                            <td><%= venta.getTotal() %></td>
+                            <td><%= venta.getFechaHora() %></td>
                         </tr>
-                    </c:forEach>
+                        <%
+                            }
+                        %>
                     </tbody>
                 </table>
             </div>
@@ -61,17 +65,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Here you would use a JSP forEach to iterate through your purchase data -->
-                    <c:forEach items="${comprasList}" var="compra">
+                        <%
+                            for (ListarCompras compra : compras) {
+                        %>
                         <tr>
-                            <td>${compra.id_surtido}</td>
-                            <td>${compra.nombre_producto}</td>
-                            <td>${compra.cantidad}</td>
-                            <td>${compra.total}</td>
-                            <td>${compra.nit_proveedor}</td>
-                            <td>${compra.fecha_entrega}</td>
+                            <td><%= compra.getIdSurtido() %></td>
+                            <td><%= compra.getNombreProducto() %></td>
+                            <td><%= compra.getCantidad() %></td>
+                            <td><%= compra.getTotal() %></td>
+                            <td><%= compra.getNitProveedor() %></td>
+                            <td><%= compra.getFechaEntrega() %></td>
                         </tr>
-                    </c:forEach>
+                        <%
+                            }
+                        %>
                     </tbody>
                 </table>
             </div>

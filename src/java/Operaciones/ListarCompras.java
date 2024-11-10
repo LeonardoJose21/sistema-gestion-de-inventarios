@@ -64,4 +64,12 @@ public class ListarCompras {
     public double getTotal() {
         return total;
     }
+
+    public String getNitProveedor() {
+        return nitProveedor;
+    }
+
+    public Date getFechaEntrega() {
+        return fechaEntrega;
+    }
 }

@@ -24,7 +24,7 @@
         <div class="login-container">
 
             <h2 class="login-title">Iniciar Sesión</h2>
-            <form method="post" action="auth">
+            <form method="post" action="AuthServlet">
                 <div class="input-group">
                     <label for="usuario">Usuario</label>
                     <input type="text" id="usuario" placeholder="Ingrese su usuario" name="usuario">
